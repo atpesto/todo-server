@@ -25,8 +25,10 @@ router.get('/todos', (req, res) => {
   res.json(todos);
 });
 
-router.get('todos/:id', (req, res) => {
-  const { id } = req.params;
+router.get('/todos/:id', (req, res) => {
+  const id = +req.params.id;
   const todo = todos.filter(todo => todo.id === id);
   res.json(todo);
 });
+
+module.exports = router;
